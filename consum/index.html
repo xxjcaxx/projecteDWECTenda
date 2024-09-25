@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,8 +7,80 @@
     <title>Vite App</title>
   </head>
   <body>
-    <h1>hola</h1>
-    <div id="app"></div>aa
+    <div id="menuSuperior">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Consum</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Categorias</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Buscar"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container" id="containerProductos">
+      Placeholder para productos
+    </div>
+
+    <div class="container" id="containerClientes">
+      Placeholder para clientes
+    </div>
+
+    <div class="container" id="containerCategorias">
+      Placeholder para categorias etc...
+    </div>
+
+    <div class="container fixed-bottom">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-body-secondary">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-body-secondary">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-body-secondary">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-body-secondary">Categorias</a>
+          </li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2024 Consum, Inc</p>
+      </footer>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
