@@ -157,6 +157,8 @@ const usuaris = [
     correuElectronic: "edgar.martinez@example.com",
     contrasenya: "edgarpass123",
     telefon: "123456789",
+    direccio: "C/Nevera 31",
+    foto: "edgar.jpg"
   },
   {
     id: 2,
@@ -165,6 +167,8 @@ const usuaris = [
     correuElectronic: "joan.garcia@example.com",
     contrasenya: "joanpass456",
     telefon: "987654321",
+    direccio: "C/Mariano 21",
+    foto: "joan.jpg"
   },
   {
     id: 3,
@@ -173,6 +177,8 @@ const usuaris = [
     correuElectronic: "ivan.rodriguez@example.com",
     contrasenya: "ivanpass789",
     telefon: "654321987",
+    direccio: "C/Jose Luis 41",
+    foto: "ivan.jpg"
   },
   {
     id: 4,
@@ -181,6 +187,8 @@ const usuaris = [
     correuElectronic: "joaquin.sanchez@example.com",
     contrasenya: "joaquinpass123",
     telefon: "789654123",
+    direccio: "C/Quico Jones 41",
+    foto: "joaquin.jpg"
   },
   {
     id: 5,
@@ -189,6 +197,8 @@ const usuaris = [
     correuElectronic: "pau.marti@example.com",
     contrasenya: "paupass456",
     telefon: "321987654",
+    direccio: "C/Mari Carmen 41",
+    foto: "pau.jpg"
   },
   {
     id: 6,
@@ -197,6 +207,8 @@ const usuaris = [
     correuElectronic: "laura.hernandez@example.com",
     contrasenya: "laurapass789",
     telefon: "112233445",
+    direccio: "C/Urano 23",
+    foto: "laura.jpg"
   },
   {
     id: 7,
@@ -205,6 +217,8 @@ const usuaris = [
     correuElectronic: "paula.mendez@example.com",
     contrasenya: "paulapass456",
     telefon: "223344556",
+    direccio: "C/Pluton 18",
+    foto: "paula.jpg"
   },
   {
     id: 8,
@@ -213,6 +227,8 @@ const usuaris = [
     correuElectronic: "denis.lopez@example.com",
     contrasenya: "denispass123",
     telefon: "998877665",
+    direccio: "C/Amapola 15",
+    foto: "denis.jpg"
   },
   {
     id: 9,
@@ -221,6 +237,8 @@ const usuaris = [
     correuElectronic: "cristian.navarro@example.com",
     contrasenya: "cristianpass456",
     telefon: "554433221",
+    direccio: "C/Amador Rivas 12",
+    foto: "cristian.jpg"
   },
   {
     id: 10,
@@ -229,5 +247,7 @@ const usuaris = [
     correuElectronic: "quico.ortega@example.com",
     contrasenya: "quicopass789",
     telefon: "667788990",
+    direccio: "C/Juan Pablo 21",
+    foto: "quico.jpg"
   },
 ];
