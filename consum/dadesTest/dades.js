@@ -1,4 +1,4 @@
-export { productes, categories, usuaris };
+export { productes, categories, usuaris, comentarios };
 
 // --- ATRIBUTS ---
 
@@ -281,7 +281,6 @@ const comentarios = [
 
   },
   {
-    puntuacion: 3,
     puntuacion: 1,
     idUsuario: 4,
     idProducto: 1,
