@@ -260,45 +260,46 @@ const usuaris = [
 
 const comentarios = [
   {
-    id: 1,
+    puntuacion: 5,
     idUsuario: 1,
     idProducto: 1,
-    descripcion: "Este producto es muy bueno"
+    descripcion: "Este producto es bueno"
 
   },
   {
-    id: 2,
+    puntuacion: 2,
     idUsuario: 2,
     idProducto: 1,
     descripcion: "Este producto no es bueno"
 
   },
   {
-    id: 3,
+    puntuacion: 7,
     idUsuario: 3,
     idProducto: 4,
     descripcion: "Este producto es muy bueno"
 
   },
   {
-    id: 4,
+    puntuacion: 3,
+    puntuacion: 1,
     idUsuario: 4,
     idProducto: 1,
-    descripcion: "Este producto es muy bueno"
+    descripcion: "Este producto no es bueno"
 
   },
   {
-    id: 5,
+    puntuacion: 2,
     idUsuario: 3,
     idProducto: 2,
-    descripcion: "Este producto es muy bueno"
+    descripcion: "Este producto es muy malo"
 
   },
   {
-    id: 6,
+    puntuacion: 9,
     idUsuario: 2,
     idProducto: 3,
-    descripcion: "Este producto es muy bueno"
+    descripcion: "Este producto es excelente"
 
   },
 
