@@ -250,4 +250,56 @@ const usuaris = [
     direccio: "C/Juan Pablo 21",
     foto: "quico.jpg"
   },
+
+
+ 
+
+
+];
+
+
+const comentarios = [
+  {
+    id: 1,
+    idUsuario: 1,
+    idProducto: 1,
+    descripcion: "Este producto es muy bueno"
+
+  },
+  {
+    id: 2,
+    idUsuario: 2,
+    idProducto: 1,
+    descripcion: "Este producto no es bueno"
+
+  },
+  {
+    id: 3,
+    idUsuario: 3,
+    idProducto: 4,
+    descripcion: "Este producto es muy bueno"
+
+  },
+  {
+    id: 4,
+    idUsuario: 4,
+    idProducto: 1,
+    descripcion: "Este producto es muy bueno"
+
+  },
+  {
+    id: 5,
+    idUsuario: 3,
+    idProducto: 2,
+    descripcion: "Este producto es muy bueno"
+
+  },
+  {
+    id: 6,
+    idUsuario: 2,
+    idProducto: 3,
+    descripcion: "Este producto es muy bueno"
+
+  },
+
 ];
