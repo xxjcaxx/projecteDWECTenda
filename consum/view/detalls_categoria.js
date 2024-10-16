@@ -1,38 +1,29 @@
 import { productes } from "../dadesTest/dades";
-export {renderCategoria};
+export { renderCategoria };
 
+function renderProducte(producte, categoria) {
+    console.log(producte)
+    if (producte.categoria === categoria){
+        return `
+            <li class="list-group-item list-group-item-action">${producte.nom}</li>
+        `
+    }
 
-function generarP(categoria){
-        let pProducte = [];
-        for (const p of productes) {
-            if (p.categoria === categoria.nom){
-                let elecmetnP = document.createElement("p");
-                elecmetnP.innerText=p.nom;
-                pProducte.push(elecmetnP);
-            }
-
-        }
-        return pProducte
-    
 }
 
 function renderCategoria(categoria) {
-    let divCategories = document.createElement("div");
-    let textoDiv = `
+  let divCategories = document.createElement("div");
+  let textoDiv = `
     <h1 class="text-center h1">${categoria.nom}</h1>
     <p class="lead">${categoria.id}</p>
     <p class="lead">${categoria.descripcio}</p>
-    ${generarP(categoria).map(e => {let obje = document.createElement("p")
-        obje.innerHTML = e.innerHTML
-        return obje
-    })}
-        
+    <ul class="list-group">
+        ${productes.map(p => renderProducte(p, categoria.nom)).join("")}
 
-   
-    `
-  
-    divCategories.innerHTML = textoDiv;
+    </ul>
+  `;
 
-    return divCategories;
-  }
-  
+  divCategories.innerHTML = textoDiv;
+
+  return divCategories;
+}
