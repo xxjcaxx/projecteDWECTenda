@@ -1,10 +1,11 @@
-export { productes, categories, usuaris };
+export { productes, categories, usuaris, comentarios };
 
 // --- ATRIBUTS ---
 
 // PRODUCTES : id, nom, preu, descripcio, marca, categoria, pes, dimensions, foto
 // CATEGORIES : id, nom, descripcio
 // USUARIS : id, nom, cognoms, correu electronic, contrasenya, telefon, direccio, foto
+// COMENTARIOS : puntacion, idProducto, idUsuario, descripcion
 
 const productes = [
   {
