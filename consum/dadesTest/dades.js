@@ -1,10 +1,11 @@
-export { productes, categories, usuaris };
+export { productes, categories, usuaris, comentarios };
 
 // --- ATRIBUTS ---
 
 // PRODUCTES : id, nom, preu, descripcio, marca, categoria, pes, dimensions, foto
 // CATEGORIES : id, nom, descripcio
 // USUARIS : id, nom, cognoms, correu electronic, contrasenya, telefon, direccio, foto
+// COMENTARIOS : puntacion, idProducto, idUsuario, descripcion
 
 const productes = [
   {
@@ -250,4 +251,56 @@ const usuaris = [
     direccio: "C/Juan Pablo 21",
     foto: "quico.jpg"
   },
+
+
+ 
+
+
+];
+
+
+const comentarios = [
+  {
+    puntuacion: 5,
+    idUsuario: 1,
+    idProducto: 1,
+    descripcion: "Este producto es bueno"
+
+  },
+  {
+    puntuacion: 2,
+    idUsuario: 2,
+    idProducto: 1,
+    descripcion: "Este producto no es bueno"
+
+  },
+  {
+    puntuacion: 7,
+    idUsuario: 3,
+    idProducto: 4,
+    descripcion: "Este producto es muy bueno"
+
+  },
+  {
+    puntuacion: 1,
+    idUsuario: 4,
+    idProducto: 1,
+    descripcion: "Este producto no es bueno"
+
+  },
+  {
+    puntuacion: 2,
+    idUsuario: 3,
+    idProducto: 2,
+    descripcion: "Este producto es muy malo"
+
+  },
+  {
+    puntuacion: 9,
+    idUsuario: 2,
+    idProducto: 3,
+    descripcion: "Este producto es excelente"
+
+  },
+
 ];

@@ -2,7 +2,6 @@ import { productes } from "../dadesTest/dades";
 export { renderCategoria };
 
 function renderProducte(producte, categoria) {
-    console.log(producte)
     if (producte.categoria === categoria){
         return `
             <li class="list-group-item list-group-item-action">${producte.nom}</li>
@@ -19,7 +18,6 @@ function renderCategoria(categoria) {
     <p class="lead">${categoria.descripcio}</p>
     <ul class="list-group">
         ${productes.map(p => renderProducte(p, categoria.nom)).join("")}
-
     </ul>
   `;
 

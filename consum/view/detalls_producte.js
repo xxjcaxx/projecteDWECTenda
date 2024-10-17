@@ -1,3 +1,7 @@
+export { renderProducte };
+import { comentarios } from "../dadesTest/dades";
+import { renderComentaris } from "./comentaris";
+
 function renderProducte(producte) {
   let divProducte = document.createElement("div");
   let textoDiv = `
@@ -31,5 +35,9 @@ function renderProducte(producte) {
    </div>`;
 
   divProducte.innerHTML = textoDiv;
+  let listaComentarios = comentarios.filter(
+    (c) => c.idProducto === producte.id
+  );
+  divProducte.append(renderComentaris(listaComentarios));
   return divProducte;
 }
