@@ -1,0 +1,11 @@
+import { getDatos } from "../supaservice";
+export { getComentaris };
+
+async function getComentaris(idProducte) {
+  const response = await getDatos(
+    "comentaris",
+    false,
+    `idProducte=eq.${idProducte}`
+  );
+  return response;
+}
