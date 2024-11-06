@@ -4,6 +4,8 @@ import './style/styles.scss'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { renderProductos } from './view/scriptsProductos'
+import { renderClientes } from './view/listarClientes'
+import { obtenerDatosClientes } from './recojerClientes'
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
@@ -12,4 +14,9 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     let productos = await obtenerDatosProductos()
     divProductos.innerHTML= renderProductos(productos)
 
+
+    //Clients
+    const divClients = document.querySelector("#containerClientes")
+    let clientes = await obtenerDatosClientes();
+    divClients.append(renderClientes(clientes));
 })
