@@ -1,7 +1,8 @@
 export { renderProducte };
 import { comentarios } from "../dadesTest/dades";
+import { getDatos } from "../supaservice";
 import { renderComentaris } from "./comentaris";
-import { listaImagenes } from "./imagenes";
+import { getListaImagenesUrl } from "./imagenes";
 
 async function renderProducte(producte) {
   let divProducte = document.createElement("div");
@@ -39,12 +40,14 @@ async function renderProducte(producte) {
     (c) => c.idProducto === producte.id
   );
 
-  let datosImagenes = await listaImagenes(
+  let datosImagenes = await getDatos(
     "imatges",
     "*",
     `producteId=eq.${producte.id}`
   );
-  let galeria = await createGaleriaImagenes(datosImagenes);
+
+
+  let galeria = createGaleriaImagenes(await getListaImagenesUrl(datosImagenes));
 
   divProducte.append(galeria);
   divProducte.append(renderComentaris(listaComentarios));
