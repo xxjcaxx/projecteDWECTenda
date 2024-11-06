@@ -55,26 +55,28 @@ async function renderProducte(producte) {
 }
 
 function createGaleriaImagenes(datosImagenes) {
-  console.log(datosImagenes);
+ // console.log(datosImagenes);
 
   let divGaleria = document.createElement("div");
   divGaleria.classList.add("carousel", "slide");
-  divGaleria.id="carouselExampleControls";
+  divGaleria.id="carouselExample";
 
-  divGaleria.innerHTML = `<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  divGaleria.innerHTML = ` <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>`;
+    <span class="visually-hidden">Next</span>
+  </button>
+`;
 
   let carousel_inner = document.createElement("div");
   carousel_inner.classList.add("carousel-inner");
 
-  console.log(datosImagenes);
+  //Cambiar el width despues
+
+ // console.log(datosImagenes);
   
 
   for (let index = 0; index < datosImagenes.length; index++) {
