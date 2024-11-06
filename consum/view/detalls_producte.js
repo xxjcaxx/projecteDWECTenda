@@ -75,6 +75,8 @@ function createGaleriaImagenes(datosImagenes) {
   carousel_inner.classList.add("carousel-inner");
 
   //Cambiar el width despues
+  carousel_inner.style.maxWidth="300px"
+  carousel_inner.style.height="300px"
 
  // console.log(datosImagenes);
   
