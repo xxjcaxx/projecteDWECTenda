@@ -1,27 +1,30 @@
-import { productes } from "../dadesTest/dades";
 export { renderCategoria };
+import { renderProducteEnCategoria } from "./detalls_producte";
 
-function renderProducte(producte, categoria) {
-    if (producte.categoria === categoria){
-        return `
-            <li class="list-group-item list-group-item-action">${producte.nom}</li>
-        `
-    }
 
-}
-
-function renderCategoria(categoria) {
+function renderCategoria(categoria, productes) {
   let divCategories = document.createElement("div");
-  let textoDiv = `
-    <h1 class="text-center h1">${categoria.nom}</h1>
-    <p class="lead">${categoria.id}</p>
-    <p class="lead">${categoria.descripcio}</p>
-    <ul class="list-group">
-        ${productes.map(p => renderProducte(p, categoria.nom)).join("")}
-    </ul>
-  `;
 
-  divCategories.innerHTML = textoDiv;
+  divCategories.innerHTML = `
+    <!-- Contenedor Principal -->
+    <div class="container my-5">
+      <!-- Sección de Categoría -->
+      <div class="category mb-5">
+        <h2 class="text-primary mb-3">${categoria.nombre}</h2>
+        <p class="text-muted mb-4">
+        ${categoria.descripcion}
+        </p>
+        <!-- Listado de Productos -->
+        <div class="row">
+        ${productes
+          .map((p) => {
+            return renderProducteEnCategoria(p);
+          })
+          .join("")}
+        </div>
+      </div>
+    </div>
+  `;
 
   return divCategories;
 }
