@@ -11,6 +11,9 @@ import { obtenerDatosClientes } from './recojerClientes'
 import { getListaImagenesUrl } from './view/imagenes'
 import { renderProducte } from './view/detalls_producte'
 
+import { obtenerDatosCategorias } from './recojerCategorias'
+import { renderCategories } from './view/categories'
+
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
@@ -26,4 +29,9 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const divClients = document.querySelector("#containerClientes")
     let clientes = await obtenerDatosClientes();
     divClients.append(renderClientes(clientes));
+
+    //Categorias    
+    const divCategorias = document.querySelector("#containerCategorias")
+    let categorias = await obtenerDatosCategorias();
+    divCategorias.append(renderCategories(categorias)); 
 })
