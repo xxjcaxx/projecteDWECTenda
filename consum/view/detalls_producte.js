@@ -46,13 +46,12 @@ async function renderProducte(producte) {
     `producteId=eq.${producte.id}`
   );
 
-
   let galeria = createGaleriaImagenes(await getListaImagenesUrl(datosImagenes));
 
   divProducte.append(galeria);
   divProducte.append(renderComentaris(listaComentarios));
   return divProducte;
-
+}
 function renderProducteEnCategoria(producte) {
   return `<div class="col-md-4 mb-4">
   <div class="card shadow-sm h-100">
@@ -66,13 +65,13 @@ function renderProducteEnCategoria(producte) {
   </div>
 </div>
 `;
-
+}
 function createGaleriaImagenes(datosImagenes) {
- // console.log(datosImagenes);
+  // console.log(datosImagenes);
 
   let divGaleria = document.createElement("div");
   divGaleria.classList.add("carousel", "slide");
-  divGaleria.id="carouselExample";
+  divGaleria.id = "carouselExample";
 
   divGaleria.innerHTML = ` <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,11 +87,10 @@ function createGaleriaImagenes(datosImagenes) {
   carousel_inner.classList.add("carousel-inner");
 
   //Cambiar el width despues
-  carousel_inner.style.maxWidth="300px"
-  carousel_inner.style.height="300px"
+  carousel_inner.style.maxWidth = "300px";
+  carousel_inner.style.height = "300px";
 
- // console.log(datosImagenes);
-  
+  // console.log(datosImagenes);
 
   for (let index = 0; index < datosImagenes.length; index++) {
     let div = document.createElement("div");
