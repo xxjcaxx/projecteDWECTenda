@@ -1,8 +1,8 @@
 import { getDatos } from "./supaservice";
-export {obtenerDatosProductos};
+export {obtenerDatosClientes};
 
-async function obtenerDatosProductos() {
-    const tabla = "productes";
+async function obtenerDatosClientes() {
+    const tabla = "clientes";
     const campos = "*";  
     const filtros = "";
 

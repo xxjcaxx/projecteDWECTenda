@@ -4,8 +4,13 @@ import './style/styles.scss'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { renderProductos } from './view/scriptsProductos'
+
+import { renderClientes } from './view/listarClientes'
+import { obtenerDatosClientes } from './recojerClientes'
+
 import { getListaImagenesUrl } from './view/imagenes'
 import { renderProducte } from './view/detalls_producte'
+
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
@@ -16,4 +21,9 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     divProductos.append( await renderProducte(productos[0]))
     
 
+
+    //Clients
+    const divClients = document.querySelector("#containerClientes")
+    let clientes = await obtenerDatosClientes();
+    divClients.append(renderClientes(clientes));
 })
