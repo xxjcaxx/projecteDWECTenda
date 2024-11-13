@@ -6,6 +6,7 @@ import { getListaImagenesUrl } from "./imagenes";
 
 async function renderProducte(producte) {
   let divProducte = document.createElement("div");
+  divProducte.classList.add("container");
   let textoDiv = `
   <h1 class="text-center h1">${producte.nom}</h1>
   <img src="${producte.foto} class="img-fluid" alt="${producte.nom}" />
@@ -32,8 +33,7 @@ async function renderProducte(producte) {
       <td>${producte.dimensions}</td>
     </tr>
   </table>
-  <div id="divComentari">Comentaris<div>
-   </div>`;
+  `;
 
   divProducte.innerHTML = textoDiv;
   let listaComentarios = comentarios.filter(
@@ -47,9 +47,9 @@ async function renderProducte(producte) {
   );
 
   let galeria = createGaleriaImagenes(await getListaImagenesUrl(datosImagenes));
-
   divProducte.append(galeria);
   divProducte.append(renderComentaris(listaComentarios));
+
   return divProducte;
 }
 function renderProducteEnCategoria(producte) {
@@ -74,11 +74,11 @@ function createGaleriaImagenes(datosImagenes) {
   divGaleria.id = "carouselExample";
 
   divGaleria.innerHTML = ` <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon btn btn-secondary" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="carousel-control-next-icon btn btn-secondary" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 `;
@@ -86,11 +86,10 @@ function createGaleriaImagenes(datosImagenes) {
   let carousel_inner = document.createElement("div");
   carousel_inner.classList.add("carousel-inner");
 
-  //Cambiar el width despues
-  carousel_inner.style.maxWidth = "300px";
-  carousel_inner.style.height = "300px";
-
-  // console.log(datosImagenes);
+  //width 
+  divGaleria.style.maxWidth = "25%";
+  divGaleria.style.maxHeight = "25%";
+  divGaleria.style.marginLeft = "30%";
 
   for (let index = 0; index < datosImagenes.length; index++) {
     let div = document.createElement("div");
@@ -99,7 +98,11 @@ function createGaleriaImagenes(datosImagenes) {
     if (index == 0) div.classList.add("active");
 
     let img = document.createElement("img");
-    img.classList.add("d-block", "w-100");
+    //Limitar las imagenes al div carousel_inner
+    img.classList.add("d-block");
+    img.style.maxHeight = "300px";
+    img.style.minHeight = "300px";
+
     img.src = datosImagenes[index];
     img.alt = "Algo no va bien al cargar la imagen";
 
