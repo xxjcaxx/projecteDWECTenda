@@ -37,9 +37,10 @@ function renderComentari(comentari) {
 
 function renderComentaris(comentaris) {
   let divComentaris = document.createElement("div");
+  divComentaris.innerHTML="Comentarios:"
   let textoDiv = `
     ${comentaris.map((c) => renderComentari(c)).join("")}
   `;
-  divComentaris.innerHTML = textoDiv;
+  divComentaris.innerHTML = "Comentarios:"+ textoDiv;
   return divComentaris;
 }
