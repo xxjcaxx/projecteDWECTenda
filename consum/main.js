@@ -10,6 +10,7 @@ import { obtenerDatosClientes } from './recojerClientes'
 
 import { getListaImagenesUrl } from './view/imagenes'
 import { renderProducte } from './view/detalls_producte'
+import { cargarPaginaProducto } from './controller/productoController'
 
 import { obtenerDatosCategorias } from './recojerCategorias'
 import { renderCategories } from './view/categories'
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const divProductos = document.querySelector("#containerProductos")
     let productos = await obtenerDatosProductos()    
     //Testing del producto nº1
-    divProductos.append( await renderProducte(productos[0]))
+    divProductos.append( await cargarPaginaProducto(1))
     
 
 
