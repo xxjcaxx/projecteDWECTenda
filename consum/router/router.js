@@ -6,14 +6,20 @@ import { renderClientes } from "../view/listarClientes";
 import { renderCategoria } from "../view/detalls_categoria";
 import { getListCategorias } from "../service/categoriaService";
 import { renderCategories } from "../view/categories";
+
 export {router}
+
 
 async function router(route) {
 
     const[hash, routeModel, routeID] = route.split('/');
-    const cuerpoContainer = document.getElementById("containerProductos")
+    const cuerpoContainer = document.getElementById("container")
     
     switch (routeModel) {
+        case 'login':
+            const container= document.createElement("webcomp-login");
+            cuerpoContainer.append(container);
+            break;
         case 'tienda':
             const lineaProductos = await obtenerDatosProductos();
             cuerpoContainer.innerHTML = renderProductos(lineaProductos);
@@ -28,7 +34,8 @@ async function router(route) {
         case 'categoria':
             const lineaCategorias = await getListCategorias();
             console.log(lineaCategorias)
-            cuerpoContainer.innerHTML = renderCategories(lineaCategorias);
+            cuerpoContainer.innerHTML="";
+            cuerpoContainer.append(renderCategories(lineaCategorias));
 
         break;
         case 'productos':

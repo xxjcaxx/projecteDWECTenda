@@ -16,7 +16,8 @@ import { cargarPaginaProducto } from './controller/productoController'
 
 import { obtenerDatosCategorias } from './recojerCategorias'
 import { renderCategories } from './view/categories'
-
+import { Login } from './login'
+customElements.define("webcomp-login", Login);
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
