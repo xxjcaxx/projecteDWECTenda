@@ -14,9 +14,11 @@ import { cargarPaginaProducto } from './controller/productoController'
 
 import { obtenerDatosCategorias } from './recojerCategorias'
 import { renderCategories } from './view/categories'
-
+import { postComentario } from './supaservice'
 
 document.addEventListener("DOMContentLoaded", async ()=>{
+
+    postComentario("comentaris")
 
     //Productos
     const divProductos = document.querySelector("#containerProductos")

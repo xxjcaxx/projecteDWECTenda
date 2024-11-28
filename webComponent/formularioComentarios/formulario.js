@@ -1,4 +1,6 @@
 export {FormularioComentariosComponent}
+import { callCrearComentario } from "../../consum/view/comentaris_supabase";
+
 
 class FormularioComentariosComponent extends HTMLElement {
   constructor() {
@@ -24,9 +26,11 @@ class FormularioComentariosComponent extends HTMLElement {
             <option value="3">Opción 3</option>
         </select><br><br>
         
-        <button type="button" onclick="manipulateValues()">Ver y Manipular Valores</button>
+        <button type="button" onclick="callCrearComentario()">Enviar comentario</button>
     </form>`;
   }
 }
 
 customElements.define("formulario-comentarios", FormularioComentariosComponent);
+
+let event = new CustomEvent
