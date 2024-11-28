@@ -1,8 +1,10 @@
 // Import our custom CSS
-import { obtenerDatosProductos } from './recojerProductos'
 import './style/styles.scss'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
+
+import { router } from './router/router'
+
 import { renderProductos } from './view/scriptsProductos'
 
 import { renderClientes } from './view/listarClientes'
@@ -18,21 +20,10 @@ import { renderCategories } from './view/categories'
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
-    //Productos
-    const divProductos = document.querySelector("#containerProductos")
-    let productos = await obtenerDatosProductos()    
-    //Testing del producto nº1
-    divProductos.append( await cargarPaginaProducto(1))
-    
 
-
-    //Clients
-    const divClients = document.querySelector("#containerClientes")
-    let clientes = await obtenerDatosClientes();
-    divClients.append(renderClientes(clientes));
-
-    //Categorias    
-    const divCategorias = document.querySelector("#containerCategorias")
-    let categorias = await obtenerDatosCategorias();
-    divCategorias.append(renderCategories(categorias)); 
+    router(window.location.hash);
+    window.addEventListener("hashchange", () => {
+        router(window.location.hash);
+        });
+ 
 })
