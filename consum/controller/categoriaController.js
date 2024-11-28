@@ -5,6 +5,8 @@ export {cargarPaginaCategoria}
 
 async function cargarPaginaCategoria(categoriaId){
     const categoriaJson = await getCategoria(categoriaId);
+    console.log(categoriaJson);
     const listProductesJson = await getListProductosByCatergoria(categoriaId);
+   
     return renderCategoria(categoriaJson[0], listProductesJson);
 }

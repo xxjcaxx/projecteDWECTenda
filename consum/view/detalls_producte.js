@@ -52,7 +52,7 @@ async function renderProducte(producte) {
   divProducte.append(galeria);
   divProducte.append(renderComentaris(listaComentarios));
   return divProducte;
-
+}
 function renderProducteEnCategoria(producte) {
   return `<div class="col-md-4 mb-4">
   <div class="card shadow-sm h-100">
@@ -66,7 +66,7 @@ function renderProducteEnCategoria(producte) {
   </div>
 </div>
 `;
-
+}
 function createGaleriaImagenes(datosImagenes) {
  // console.log(datosImagenes);
 
