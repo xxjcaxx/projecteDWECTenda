@@ -32,4 +32,4 @@ jobs:
       run: npm ci
     - name: npm test
       working-directory: ./consum
-      run: run testrun
+      run: npm run testrun
