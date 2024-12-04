@@ -1,4 +1,4 @@
-export {getDatos, fetchIMG};
+export {getDatos, fetchIMG,comprobarLogin, isLoged};
 
 async function getDatos(taula, camps, filtres) {
     if (!camps) {
@@ -23,8 +23,36 @@ async function getDatos(taula, camps, filtres) {
     .catch(error => Promise.reject("ERROR : " + error));
 
     return response;
+}async function comprobarLogin(body) {
+    try {
+        const response = await fetch('https://pfzdlpckanlmhawvceda.supabase.co/auth/v1/token?grant_type=password', {
+            method: "POST",
+            headers: {
+                apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmemRscGNrYW5sbWhhd3ZjZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkwODYyMjcsImV4cCI6MjA0NDY2MjIyN30.Mj86y-xlHRd8oLDG9rBI7W1fjlD9BD0CmzR3-i5fcbg",
+                "Content-type": "application/json",
+            },
+            body,
+        });
+
+        // Verifica si la respuesta es exitosa
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
+        const dataLogin = await response.json();
+
+        // Guardar los datos en localStorage
+        localStorage.setItem("access_token", dataLogin.access_token);
+        localStorage.setItem("expires_at", dataLogin.expires_at);
+        localStorage.setItem("refresh_token", dataLogin.refresh_token);
+        localStorage.setItem("user_id", dataLogin.user.id);
+        
+    } catch (error) {
+        console.error("Error en el login:", error.message);
+    }
 }
-async function postDatos(profile, data){
+
+async function postDatos(taula, data){
 
     let ruta = `https://pfzdlpckanlmhawvceda.supabase.co/rest/v1/${taula}`
      
@@ -37,13 +65,7 @@ async function postDatos(profile, data){
             Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmemRscGNrYW5sbWhhd3ZjZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkwODYyMjcsImV4cCI6MjA0NDY2MjIyN30.Mj86y-xlHRd8oLDG9rBI7W1fjlD9BD0CmzR3-i5fcbg"
         },
 
-        body: JSON.stringify({
-            "idUsuari": 2,
-            "idComentari":9,
-            "idProducte":1,
-            "descripcio": "aniiiiiiiisssss",
-            "puntuacio": 5
-        })
+        body: JSON.stringify(data),
 
     })
     .then(response => response.status == 200 ? response : Promise.reject(response.status))
@@ -76,4 +98,12 @@ async function fetchIMG(nombreURL,nombre) {
 
     return response;
 
+}
+function isLoged() {
+    const ahora = Math.floor(Date.now() / 1000);
+    if(localStorage.getItem("expires_at") <ahora){
+        return true;
+    }else{
+        return false;
+    }
 }

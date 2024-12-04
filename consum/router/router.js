@@ -6,8 +6,8 @@ import { renderClientes } from "../view/listarClientes";
 import { renderCategoria } from "../view/detalls_categoria";
 import { getListCategorias } from "../service/categoriaService";
 import { renderCategories } from "../view/categories";
+import {isLoged} from "../supaservice";
 
-export {router}
 
 
 async function router(route) {
@@ -26,10 +26,13 @@ async function router(route) {
 
         break;
         case 'clientes':
-            const lineaClientes = await obtenerDatosClientes();
-            cuerpoContainer.innerHTML = "";
-            cuerpoContainer.append(renderClientes(lineaClientes));
-
+            if(isLoged()){
+                const lineaClientes = await obtenerDatosClientes();
+                cuerpoContainer.innerHTML = "";
+                cuerpoContainer.append(renderClientes(lineaClientes));
+            }else{
+                router("login");
+            }
         break;
         case 'categoria':
             const lineaCategorias = await getListCategorias();
