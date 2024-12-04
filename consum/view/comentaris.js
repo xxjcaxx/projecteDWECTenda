@@ -1,5 +1,6 @@
 export { renderComentaris };
 import { usuaris } from "../dadesTest/dades";
+import { FormularioComentariosComponent } from "../WebComponents/formulario";
 
 function buscarUsuario(idUsuario) {
   for (const u of usuaris) {
@@ -38,7 +39,8 @@ function renderComentari(comentari) {
 function renderComentaris(comentaris) {
   let divComentaris = document.createElement("div");
   divComentaris.innerHTML="Comentarios:"
-  let textoDiv = `
+  
+  let textoDiv = ` <formulario-comentarios data-id="${comentaris[1].idProducto}"></formulario-comentarios>
     ${comentaris.map((c) => renderComentari(c)).join("")}
   `;
   divComentaris.innerHTML = "Comentarios:"+ textoDiv;

@@ -1,5 +1,5 @@
-import { getDatos } from "../supaservice";
-export { getComentaris };
+import { getDatos, postDatos } from "../supaservice";
+export { getComentaris, callCrearComentario };
 
 async function getComentaris(idProducte) {
   const response = await getDatos(
@@ -8,4 +8,12 @@ async function getComentaris(idProducte) {
     `idProducte=eq.${idProducte}`
   );
   return response;
+}
+
+async function callCrearComentario(id,data) {
+  data.append("idUsuari", 1);
+  data.append("idProducte", id);
+  console.log(data);
+  
+  postDatos("comentaris", Object.fromEntries(data));
 }
