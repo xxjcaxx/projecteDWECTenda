@@ -1,8 +1,10 @@
 // Import our custom CSS
-import { obtenerDatosProductos } from './recojerProductos'
 import './style/styles.scss'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
+
+import { router } from './router/router'
+
 import { renderProductos } from './view/scriptsProductos'
 
 import { renderClientes } from './view/listarClientes'
@@ -15,6 +17,17 @@ import { cargarPaginaProducto } from './controller/productoController'
 import { obtenerDatosCategorias } from './recojerCategorias'
 import { renderCategories } from './view/categories'
 
+
+import { FormRegistro } from "./view/registre";
+
+
 document.addEventListener("DOMContentLoaded", async ()=>{
-    
+
+
+    router(window.location.hash);
+    window.addEventListener("hashchange", () => {
+        router(window.location.hash);
+        });
+ 
+
 })
