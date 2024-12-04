@@ -8,7 +8,7 @@ class Login extends HTMLElement {
             <br><br>
         <div class="card">
           <h1 class="card-title">Login</h1>
-          <form>
+          <form action="URL_DESTINO" method="post">
             <div class="usuario-login">
                 <label  for="name">Nombre:</label>
                 <input id="login-nombre" type="text" id="name" name="name" required>
@@ -26,6 +26,15 @@ class Login extends HTMLElement {
     const loginButton = this.querySelector(".login-button");
     loginButton.addEventListener("click", (event) => {
       event.preventDefault();
+      const form= this.querySelector("form");
+      const formData = new FormData(form);
+
+      const datos = Object.fromEntries(formData.entries());
+      console.log(datos);
+
+
+
     });
   }
+  
 }
