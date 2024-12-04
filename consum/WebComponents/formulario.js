@@ -1,4 +1,4 @@
-import { callCrearComentario } from "../../consum/view/comentaris_supabase";
+import { callCrearComentario } from "../view/comentaris_supabase";
 
 export class FormularioComentariosComponent extends HTMLElement {
   constructor() {
