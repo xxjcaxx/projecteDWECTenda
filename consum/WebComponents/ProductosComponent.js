@@ -33,9 +33,7 @@ export class ProductosComponent extends HTMLElement {
   </div>
   </div>
   </div>
-  `
-      )
-      .join("");
+  `).join("");
 
     this.innerHTML = `
           <div>${divProductos}</div>
