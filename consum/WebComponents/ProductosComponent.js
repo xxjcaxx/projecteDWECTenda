@@ -42,7 +42,7 @@ export class ProductosComponent extends HTMLElement {
         `;
   }
 
-  getCategorias() {
+  getProductos() {
     const data = this.getAttribute("data-productos");
     return JSON.parse(data);
   }
