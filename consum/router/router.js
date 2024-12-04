@@ -6,6 +6,8 @@ import { getListCategorias } from "../service/categoriaService";
 export { router };
 import { CategoriesComponent } from "../WebComponents/CategoriesComponent";
 customElements.define("categories-component", CategoriesComponent);
+import { ProductosComponent } from "../WebComponents/ProductosComponent";
+customElements.define("productos-component", ProductosComponent);
 
 async function router(route) {
   // eslint-disable-next-line no-unused-vars
@@ -28,7 +30,6 @@ async function router(route) {
     }
     case "categoria": {
       let lineaCategorias = await getListCategorias();
-      console.log(lineaCategorias);
 
       // Creamos el componente de categorías
       const categoriesComponent = document.createElement("categories-component");
@@ -44,7 +45,13 @@ async function router(route) {
     }
     case "productos":{
       const lineaProductoss = await obtenerDatosProductos();
-      cuerpoContainer.innerHTML = renderProductos(lineaProductoss);
+
+      const productosComponent = document.createElement("productos-component");
+      productosComponent.setAttribute("data-productos",JSON.stringify(lineaProductoss));
+
+      cuerpoContainer.innerHTML = "";
+      cuerpoContainer.append(productosComponent);
+      //cuerpoContainer.innerHTML = renderProductos(lineaProductoss);
 
       break;
 
