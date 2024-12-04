@@ -1,4 +1,4 @@
-export {getDatos, fetchIMG};
+export {getDatos, fetchIMG, enviarRegistre};
 
 async function getDatos(taula, camps, filtres) {
     if (!camps) {
@@ -46,4 +46,35 @@ async function fetchIMG(nombreURL,nombre) {
 
     return response;
 
+}
+
+async function enviarRegistre(correu, contrasenya) {
+    const ruta = 'https://pfzdlpckanlmhawvceda.supabase.co/auth/v1/signup';
+    const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmemRscGNrYW5sbWhhd3ZjZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkwODYyMjcsImV4cCI6MjA0NDY2MjIyN30.Mj86y-xlHRd8oLDG9rBI7W1fjlD9BD0CmzR3-i5fcbg";
+
+    try {
+        const response = await fetch(ruta, {
+            method: 'POST',
+            headers: {
+                "apikey": apiKey,
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: correu,
+                password: contrasenya
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Error al enviar el registro:", error);
+        throw error;
+    }
 }

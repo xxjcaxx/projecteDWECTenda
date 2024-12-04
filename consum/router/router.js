@@ -47,6 +47,7 @@ async function router(route) {
       cuerpoContainer.innerHTML = renderProductos(lineaProductoss);
 
       break;
+
     }
     default:
       window.location.hash = "#/tienda";
