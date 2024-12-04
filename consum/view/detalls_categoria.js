@@ -1,9 +1,11 @@
 export { renderCategoria };
+  import { obtenerDatosProductos } from "../recojerProductos";
 import { renderProducteEnCategoria } from "./detalls_producte";
 
 
-function renderCategoria(categoria, productes) {
+async function renderCategoria(categoria) {
   let divCategories = document.createElement("div");
+  let productes = await obtenerDatosProductos();
 
   divCategories.innerHTML = `
     <!-- Contenedor Principal -->

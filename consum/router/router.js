@@ -1,11 +1,15 @@
 import { obtenerDatosProductos } from "../recojerProductos";
+import { obtenerDatosCategorias } from "../recojerCategorias";
 import { renderProductos } from "../view/scriptsProductos";
+
 import { cargarPaginaCategoria } from "../controller/categoriaController";
 import { obtenerDatosClientes } from "../recojerClientes";
 import { renderClientes } from "../view/listarClientes";
-import { renderCategoria } from "../view/detalls_categoria";
 import { getListCategorias } from "../service/categoriaService";
 import { renderCategories } from "../view/categories";
+
+import { renderProducte } from "../view/detalls_producte";
+import { renderCategoria } from "../view/detalls_categoria";
 export {router}
 
 async function router(route) {
@@ -22,19 +26,29 @@ async function router(route) {
         case 'clientes':
             const lineaClientes = await obtenerDatosClientes();
             cuerpoContainer.innerHTML = "";
-            cuerpoContainer.append(renderClientes(lineaClientes));
+            cuerpoContainer.appendChild(renderClientes(lineaClientes));
 
         break;
-        case 'categoria':
+        case 'categorias':
             const lineaCategorias = await getListCategorias();
-            console.log(lineaCategorias)
-            cuerpoContainer.innerHTML = renderCategories(lineaCategorias);
+            cuerpoContainer.innerHTML = "";
+            cuerpoContainer.appendChild(renderCategories(lineaCategorias));
 
         break;
         case 'productos':
            const lineaProductoss = await obtenerDatosProductos();
            cuerpoContainer.innerHTML = renderProductos(lineaProductoss);
 
+        break;
+        case 'producto':
+            const producto = await obtenerDatosProductos(`id=eq.${routeID}`);
+            cuerpoContainer.innerHTML = "";
+            cuerpoContainer.appendChild(await renderProducte(producto[0]));
+        break;
+        case 'categoria':
+            const categoria = await obtenerDatosCategorias(`id=eq.${routeID}`);
+            cuerpoContainer.innerHTML = "";
+            cuerpoContainer.appendChild(await renderCategoria(categoria[0]));
         break;
 
         case 'registro':

@@ -60,7 +60,8 @@ function renderProducteEnCategoria(producte) {
           <h5 class="card-title">${producte.nom}</h5>
           <p class="card-text text-muted">${producte.descripcio}</p>
           <p class="fw-bold">${producte.preu}€</p>
-          <a href="#" class="btn btn-primary w-100">Añadir al carrito</a>
+          <a href="#" class="btn btn-primary">Añadir al carrito</a>
+          <a href="#/producto/${producte.id}" class="btn btn-primary">Ver</a>
       </div>
   </div>
 </div>

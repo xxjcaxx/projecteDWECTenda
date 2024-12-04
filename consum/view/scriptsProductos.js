@@ -19,6 +19,7 @@ function renderProductos(productes){
   </ul>
   <div class="card-body">
     <a href="#" class="card-link btn btn-success" >Añadir al carrito</a>
+    <a href="#/producto/${p.id}" class="card-link btn btn-success">Ver</a>
   </div>
   </div>
   </div>
