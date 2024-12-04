@@ -38,10 +38,9 @@ function renderComentari(comentari) {
 
 function renderComentaris(comentaris) {
   let divComentaris = document.createElement("div");
-  const helloComponent = document.createElement('formulario-comentarios');
   divComentaris.innerHTML="Comentarios:"
   
-  let textoDiv = ` <formulario-comentarios></formulario-comentarios>
+  let textoDiv = ` <formulario-comentarios data-id="${comentaris[1].idProducto}"></formulario-comentarios>
     ${comentaris.map((c) => renderComentari(c)).join("")}
   `;
   divComentaris.innerHTML = "Comentarios:"+ textoDiv;
