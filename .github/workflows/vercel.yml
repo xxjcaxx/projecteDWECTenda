@@ -19,9 +19,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
+        working-directory: ./consum
         run: npm install
 
       - name: Build project
+        working-directory: ./consum
         run: npm run build
 
       - name: Deploy to Vercel
