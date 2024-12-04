@@ -36,6 +36,10 @@ async function router(route) {
            cuerpoContainer.innerHTML = renderProductos(lineaProductoss);
 
         break;
+
+        case 'registro':
+            cuerpoContainer.innerHTML = "<form-registre></form-registre>";
+        break;
         
 
         default:
