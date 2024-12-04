@@ -1,6 +1,6 @@
 export { renderComentaris };
 import { usuaris } from "../dadesTest/dades";
-import { FormularioComentariosComponent } from "../../webComponent/formularioComentarios/formulario";
+import { FormularioComentariosComponent } from "../WebComponents/formulario";
 
 function buscarUsuario(idUsuario) {
   for (const u of usuaris) {
