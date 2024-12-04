@@ -35,9 +35,7 @@ async function router(route) {
       let lineaCategorias = await getListCategorias();
 
       // Creamos el componente de categorías
-      const categoriesComponent = document.createElement(
-        "categories-component"
-      );
+      const categoriesComponent = document.createElement("categories-component");
 
       // Pasamos las categorías como atributo
       categoriesComponent.setAttribute(

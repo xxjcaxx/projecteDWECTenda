@@ -30,6 +30,7 @@ export class ProductosComponent extends HTMLElement {
   </ul>
   <div class="card-body">
     <a href="#" class="card-link btn btn-success" >Añadir al carrito</a>
+    <a href="#/producto/${p.id}" class="card-link btn btn-success">Ver</a>
   </div>
   </div>
   </div>
@@ -42,7 +43,7 @@ export class ProductosComponent extends HTMLElement {
         `;
   }
 
-  getCategorias() {
+  getProductos() {
     const data = this.getAttribute("data-productos");
     return JSON.parse(data);
   }
