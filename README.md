@@ -13,3 +13,5 @@ Cada sprint tindrà uns tests fets pels alumnes i supervisats pel professor. Pas
 L'organització de tot es farà resolent `Issues en un Project de `Github`.
 
 Es valorarà acabar els `Sprints`en temps i forma, aixì com la quantitat d'ells. 
+
+Proves
