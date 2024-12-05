@@ -1,10 +1,9 @@
 import { getDatos } from "./supaservice";
 export {obtenerDatosProductos};
 
-async function obtenerDatosProductos() {
+async function obtenerDatosProductos(filtros = "") {
     const tabla = "productes";
     const campos = "*";  
-    const filtros = "";
 
     const datos = await getDatos(tabla, campos, filtros);
 

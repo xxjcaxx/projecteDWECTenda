@@ -1,5 +1,8 @@
 import { obtenerDatosProductos } from "../recojerProductos";
+import { obtenerDatosCategorias } from "../recojerCategorias";
 import { renderProductos } from "../view/scriptsProductos";
+import { renderProducte } from "../view/detalls_producte";
+import { renderCategoria } from "../view/detalls_categoria";
 import { obtenerDatosClientes } from "../recojerClientes";
 import { renderClientes } from "../view/listarClientes";
 import { getListCategorias } from "../service/categoriaService";
@@ -15,39 +18,45 @@ async function router(route) {
   const cuerpoContainer = document.getElementById("containerProductos");
 
   switch (routeModel) {
-    case "tienda":{
+    case "tienda":
       const lineaProductos = await obtenerDatosProductos();
       cuerpoContainer.innerHTML = renderProductos(lineaProductos);
 
       break;
-    }
-    case "clientes":{
+
+    case "clientes":
       const lineaClientes = await obtenerDatosClientes();
       cuerpoContainer.innerHTML = "";
       cuerpoContainer.append(renderClientes(lineaClientes));
 
       break;
-    }
-    case "categoria": {
+
+    case "categorias":
       let lineaCategorias = await getListCategorias();
 
       // Creamos el componente de categorías
       const categoriesComponent = document.createElement("categories-component");
 
       // Pasamos las categorías como atributo
-      categoriesComponent.setAttribute("data-categorias",JSON.stringify(lineaCategorias));
+      categoriesComponent.setAttribute(
+        "data-categorias",
+        JSON.stringify(lineaCategorias)
+      );
 
       // Limpiamos el contenedor y añadimos el componente
       cuerpoContainer.innerHTML = "";
       cuerpoContainer.append(categoriesComponent);
 
       break;
-    }
-    case "productos":{
+
+    case "productos":
       const lineaProductoss = await obtenerDatosProductos();
 
       const productosComponent = document.createElement("productos-component");
-      productosComponent.setAttribute("data-productos",JSON.stringify(lineaProductoss));
+      productosComponent.setAttribute(
+        "data-productos",
+        JSON.stringify(lineaProductoss)
+      );
 
       cuerpoContainer.innerHTML = "";
       cuerpoContainer.append(productosComponent);
@@ -55,7 +64,22 @@ async function router(route) {
 
       break;
 
-    }
+    case "producto":
+      const producto = await obtenerDatosProductos(`id=eq.${routeID}`);
+      cuerpoContainer.innerHTML = "";
+      cuerpoContainer.appendChild(await renderProducte(producto[0]));
+      break;
+
+    case "categoria":
+      const categoria = await obtenerDatosCategorias(`id=eq.${routeID}`);
+      cuerpoContainer.innerHTML = "";
+      cuerpoContainer.appendChild(await renderCategoria(categoria[0]));
+      break;
+
+    case "registro":
+      cuerpoContainer.innerHTML = "<form-registre></form-registre>";
+      break;
+
     default:
       window.location.hash = "#/tienda";
       break;
