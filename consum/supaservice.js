@@ -1,5 +1,5 @@
 
-export {getDatos, fetchIMG, enviarRegistre, postDatos};
+export {getDatos, fetchIMG, enviarRegistre, postDatos , enviarLogin};
 
 async function postDatos(taula, data) {
   let ruta = `https://pfzdlpckanlmhawvceda.supabase.co/rest/v1/${taula}`;
@@ -109,5 +109,41 @@ async function enviarRegistre(correu, contrasenya) {
         console.error("Error al enviar el registro:", error);
         throw error;
     }
+
+}
+
+
+async function enviarLogin(correu, contrasenya) {
+  
+  const ruta = 'https://pfzdlpckanlmhawvceda.supabase.co/auth/v1/token?grant_type=password';
+  const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBmemRscGNrYW5sbWhhd3ZjZWRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjkwODYyMjcsImV4cCI6MjA0NDY2MjIyN30.Mj86y-xlHRd8oLDG9rBI7W1fjlD9BD0CmzR3-i5fcbg";
+
+  try {
+      const response = await fetch(ruta, {
+          method: 'POST',
+          headers: {
+              "apikey": apiKey,
+              "Authorization": `Bearer ${apiKey}`,
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              email: correu,
+              password: contrasenya
+          })
+      });
+      
+      
+      if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log("Login exitoso:", data);
+      return data;
+
+  } catch (error) {
+      console.error("Error en el login:", error);
+      throw error;
+  }
 
 }
