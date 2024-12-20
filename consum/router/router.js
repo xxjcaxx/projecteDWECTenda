@@ -80,6 +80,10 @@ async function router(route) {
       cuerpoContainer.innerHTML = "<form-registre></form-registre>";
       break;
 
+    case "login":
+      cuerpoContainer.innerHTML = "<login-form></login-form>";
+      break;
+
     default:
       window.location.hash = "#/tienda";
       break;

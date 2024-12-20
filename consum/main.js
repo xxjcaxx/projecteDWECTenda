@@ -19,7 +19,7 @@ import { renderCategories } from './view/categories'
 
 
 import { FormRegistro } from "./view/registre";
-
+import { LoginFormComponent } from './WebComponents/LoginForm'
 
 document.addEventListener("DOMContentLoaded", async ()=>{
 
